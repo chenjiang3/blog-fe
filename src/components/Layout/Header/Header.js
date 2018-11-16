@@ -80,7 +80,7 @@ class HeaderDom extends Component {
 
   render() {
     return (
-      <div className='header'>
+      <Link className='header' to="/">
         <Header>
           <Row>
             <Col md={0} lg={1} xl={3} xxl={5} />
@@ -189,7 +189,7 @@ class HeaderDom extends Component {
           </Col>
           <Col lg={1} xl={4} xxl={5} />
         </Row>
-      </div>
+      </Link>
     );
   }
 

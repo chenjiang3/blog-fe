@@ -42,26 +42,28 @@ export default class Articles extends Component {
         >
           {
             articles && articles.map(item => (
-              <Card
-                key={`${item._id}-${item.title}`}
-                bordered={false}
-                hoverable={true}
-                className={'article'}
-                type={'inner'}
-              >
-                <div>
-                  <h3>{item.title}</h3>
-                  <p className={'tag'}>
-                    <span>发表于：{format(item.create_at)}</span>
-                    <span>标签：{item.tag && item.tag.title}</span>
-                    <span>浏览：{item.access}</span>
-                  </p>
-                  <div className={'abstract'}>{item.abstract}...</div>
-                  <Link to={`/article/${item._id}`}>
-                    <span className={'link'}>阅读原文 >></span>
-                  </Link>
-                </div>
-              </Card>
+              <Link to={`/article/${item._id}`}>
+                <Card
+                  key={`${item._id}-${item.title}`}
+                  bordered={false}
+                  hoverable={true}
+                  className={'article'}
+                  type={'inner'}
+                >
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p className={'tag'}>
+                      <span>发表于：{format(item.create_at)}</span>
+                      <span>标签：{item.tag && item.tag.title}</span>
+                      <span>浏览：{item.access}</span>
+                    </p>
+                    <div className={'abstract'}>{item.abstract}...</div>
+                    <Link to={`/article/${item._id}`}>
+                      <span className={'link'}>阅读原文 >></span>
+                    </Link>
+                  </div>
+                </Card>
+              </Link>
             ))
           }
         </QueueAnim>
