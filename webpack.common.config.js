@@ -1,10 +1,17 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const extractLess = new ExtractTextPlugin({
+  filename: "[name].[contenthash].css",
+  disable: process.env.NODE_ENV === "development",
+});
 
 const commonConfig = {
   entry: {
     app: [
+      "babel-polyfill",
       'react-hot-loader/patch',
       path.join(__dirname, 'src/index.js')
     ],
@@ -19,7 +26,7 @@ const commonConfig = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         include: path.join(__dirname, 'src'),
         loader: 'babel-loader',
         options: {
@@ -27,7 +34,9 @@ const commonConfig = {
           plugins: [
             '@babel/plugin-proposal-class-properties',
             '@babel/plugin-proposal-object-rest-spread',
-            'react-hot-loader/babel'
+            '@babel/plugin-syntax-dynamic-import',
+            'react-hot-loader/babel',
+            // ['import', { libraryName: 'antd', style: true }],
           ]
         }
       },
@@ -41,6 +50,23 @@ const commonConfig = {
             }
           }
         ]
+      },
+      {
+        test: /\.less$/,
+        use: extractLess.extract({
+          use: [{
+            loader: "css-loader"
+          }, {
+            loader: "less-loader",
+            options: {
+              strictMath: true,
+              noIeCompat: true,
+              // javascriptEnabled: true,
+            }
+          }],
+          // use style-loader in development
+          fallback: "style-loader"
+        })
       }
     ]
   },
@@ -56,6 +82,7 @@ const commonConfig = {
       name: 'runtime'
     }),
     new webpack.HashedModuleIdsPlugin(),
+    extractLess,
   ],
   resolve: {
     alias: {

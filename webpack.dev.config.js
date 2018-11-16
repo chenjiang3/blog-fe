@@ -3,6 +3,10 @@ const merge = require('webpack-merge');
 
 const commonConfig = require('./webpack.common.config');
 
+const BASE_URL_DEV = 'http://132.232.34.190';
+const BASE_URL_PRO = 'http://132.232.34.190';
+const BASE_URL = process.env.NODE_ENV === 'development' ? BASE_URL_DEV : BASE_URL_PRO;
+
 const devConfig = {
   devtool: 'inline-source-map',
   entry: {
@@ -26,7 +30,14 @@ const devConfig = {
     port: 8080,
     contentBase: path.join(__dirname, './dist'),
     historyApiFallback: true,
-    host: '0.0.0.0'
+    host: '0.0.0.0',
+    proxy: {
+      '/api': {
+        target: BASE_URL,
+        secure: false,
+        changeOrigin: true,
+      },
+    }
   },
 };
 

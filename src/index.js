@@ -1,25 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
-import { Provider } from 'react-redux';
+import {AppContainer} from 'react-hot-loader';
+import {Provider} from 'react-redux';
+import {LocaleProvider} from 'antd';
+import zhCN from 'antd/lib/locale-provider/zh_CN';
 
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 
-import getRouter from 'router/router';
+import './index.less';
+
 import store from './redux/store';
+import RouterMap from "router/RouterMap";
 
-import App from 'src/components/App/App';
-
-// renderWithHotReload(getRouter());
-
-renderWithHotReload(App);
-
-// if (module.hot) {
-//   module.hot.accept('./router/router', () => {
-//     const getRouter = require('./router/router').default;
-//     renderWithHotReload(getRouter());
-//   });
-// }
+renderWithHotReload(RouterMap);
 
 if (module.hot) {
   module.hot.accept('src/components/App/App', () => {
@@ -30,12 +23,14 @@ if (module.hot) {
 
 function renderWithHotReload(RootElement) {
   ReactDOM.render(
-    <AppContainer>
-      <Provider store={store}>
-        <Router>
-          <RootElement/>
-        </Router>
-      </Provider>
-    </AppContainer>,
+    <LocaleProvider locale={zhCN}>
+      <AppContainer>
+        <Provider store={store}>
+          <Router>
+            <RootElement/>
+          </Router>
+        </Provider>
+      </AppContainer>
+    </LocaleProvider>,
     document.getElementById('app'));
 }
