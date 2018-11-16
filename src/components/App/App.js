@@ -3,10 +3,11 @@ import { BackTop, Col, Layout, Row } from 'antd'
 
 import Nav from 'src/components/Nav/Nav';
 import getRouter from 'router/router';
-import HeaderDom from "src/components/Layout/Header";
+import HeaderDom from "src/components/Layout/Header/Header";
 
 import './style.less';
 import Footer from "src/components/Layout/Footer/Footer";
+import SlideBar from "../Layout/SlideBar/SlideBar";
 
 const {Content} = Layout;
 
@@ -31,6 +32,16 @@ export default class App extends Component {
                 <Row>
                   <Col xs={24} sm={24} md={24} lg={17} xl={17} xxl={17}>
                     {children}
+                  </Col>
+                  <Col
+                    xs={24}
+                    sm={24}
+                    md={24}
+                    lg={{span: 6, offset: 1}}
+                    xl={{span: 6, offset: 1}}
+                    xxl={{span: 6, offset: 1}}
+                  >
+                    <SlideBar/>
                   </Col>
                 </Row>
               </Col>
