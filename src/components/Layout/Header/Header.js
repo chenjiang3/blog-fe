@@ -56,7 +56,7 @@ const headerTitle = [
   { title: '主页', icon: { __html: '&#xe600;' }, url: '/' },
   { title: '归档', icon: { __html: '&#xe660;' }, url: '/time-file' },
   { title: '说说', icon: { __html: '&#xe6a1;' }, url: '/say' },
-  { title: '收藏', icon: { __html: '&#xe60e;' }, url: '/collect' }
+  // { title: '收藏', icon: { __html: '&#xe60e;' }, url: '/collect' }
 ];
 
 const menu = (
@@ -77,6 +77,29 @@ const menu = (
 );
 
 class HeaderDom extends Component {
+
+  _renderSearch = () => {
+    // return (
+    //   <Col
+    //     xs={24}
+    //     sm={0}
+    //     md={{ span: 6, offset: 1 }}
+    //     xl={{ span: 6, offset: 1 }}
+    //     xxl={{ span: 6, offset: 1 }}>
+    //     <Search
+    //       placeholder="输入搜索标题"
+    //       onSearch={value => {
+    //         props.fetchArticle({
+    //           pageIndex: 1,
+    //           pageSize: 10,
+    //           title: value
+    //         })
+    //       }}
+    //       className="search-input"
+    //     />
+    //   </Col>
+    // );
+  };
 
   render() {
     return (
@@ -167,24 +190,7 @@ class HeaderDom extends Component {
                   </div>
                 ))}
               </Col>
-              <Col
-                xs={24}
-                sm={0}
-                md={{ span: 6, offset: 1 }}
-                xl={{ span: 6, offset: 1 }}
-                xxl={{ span: 6, offset: 1 }}>
-                <Search
-                  placeholder="输入搜索标题"
-                  onSearch={value => {
-                    props.fetchArticle({
-                      pageIndex: 1,
-                      pageSize: 10,
-                      title: value
-                    })
-                  }}
-                  className="search-input"
-                />
-              </Col>
+              {this._renderSearch()}
             </Row>
           </Col>
           <Col lg={1} xl={4} xxl={5} />

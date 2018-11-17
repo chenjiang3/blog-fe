@@ -5,15 +5,21 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import AppPage from 'src/container/App';
 import ArticleList from 'src/container/ArticleList';
 import ArticleDetail from 'src/container/ArticleDetail';
+import TimeFile from "../container/TimeFile";
+import Paths from "router/Paths";
 
 const RouterList = [
   {
     component: ArticleList,
-    path: '/'
+    path: Paths.home
   },
   {
     component: ArticleDetail,
-    path: '/article/:id'
+    path: Paths.articleDetail,
+  },
+  {
+    component: TimeFile,
+    path: Paths.timeFile,
   }
 ];
 
