@@ -6,6 +6,8 @@ import AppPage from 'src/container/App';
 import ArticleList from 'src/container/ArticleList';
 import ArticleDetail from 'src/container/ArticleDetail';
 import TimeFile from "../container/TimeFile";
+import Say from '../container/Say';
+
 import Paths from "router/Paths";
 
 const RouterList = [
@@ -20,6 +22,10 @@ const RouterList = [
   {
     component: TimeFile,
     path: Paths.timeFile,
+  },
+  {
+    component: Say,
+    path: Paths.says,
   }
 ];
 
