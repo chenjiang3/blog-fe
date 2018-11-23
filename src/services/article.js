@@ -2,8 +2,14 @@ import {stringify} from 'qs';
 import callApi from "src/utils/callApi";
 import {API} from "src/config";
 
-export async function fetchArticleList() {
-  return callApi(`/${API}/get-articles`, {
+const articleApi = `/${API}/article`;
+
+export async function fetchArticleList({pageIndex, pageSize}) {
+  const params = {
+    pageIndex: pageIndex || 1,
+    pageSize: pageSize || 100,
+  };
+  return callApi(`${articleApi}/list?${stringify(params)}`, {
     method: 'GET',
   });
 }
@@ -13,7 +19,13 @@ export async function fetchArticleDetail({id}) {
     Id: id || undefined,
   };
 
-  return callApi(`/${API}/get-article?${stringify(params)}`, {
+  return callApi(`${articleApi}/${id}`, {
     method: 'GET',
+  });
+}
+
+export async function increaseAccess({id}) {
+  return callApi(`${articleApi}/access/${id}`, {
+    method: 'PUT',
   });
 }

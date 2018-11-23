@@ -26,15 +26,16 @@ const RouterList = [
   {
     component: Say,
     path: Paths.says,
-  }
+  },
+
 ];
 
 class RouterMap extends Component {
 
   render() {
     return (
-      <AppPage>
-        <Switch>
+      <Switch>
+        <AppPage>
           {
             RouterList.map(item => (
               <Route
@@ -45,8 +46,8 @@ class RouterMap extends Component {
               />
             ))
           }
-        </Switch>
-      </AppPage>
+        </AppPage>
+      </Switch>
     )
   }
 

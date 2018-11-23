@@ -11,6 +11,7 @@ import './index.less';
 
 import store from './redux/store';
 import RouterMap from "router/RouterMap";
+// import RouteList from 'router/router';
 
 renderWithHotReload(RouterMap);
 

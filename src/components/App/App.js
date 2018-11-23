@@ -13,12 +13,16 @@ const {Content} = Layout;
 
 export default class App extends Component {
 
-  renderResume = () => {
+  componentDidMount() {
+    console.log(this.props);
+  }
+
+  _renderMgt = () => {
     const { children } = this.props;
-    return <div>{children}</div>
+    return <div>{'mgt'}</div>
   };
 
-  renderNotResume = () => {
+  _renderWeb = () => {
     const {children} = this.props;
     return (
       <Layout>
@@ -55,9 +59,11 @@ export default class App extends Component {
 
   render() {
     const {location} = this.props;
-    // const isResume = location.pathname === '/resume';
-    const isResume = false;
-    return !isResume ? this.renderNotResume() : this.renderResume();
+    const isMgt = location.pathname === '/mgt';
+    if (isMgt) {
+      return this._renderMgt();
+    }
+    return this._renderWeb();
   }
 
   // render() {

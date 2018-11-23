@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {fetchArticleDetail} from "actions/article";
+import {ARTICLE_ADD_ACCESS, fetchArticleDetail} from "actions/article";
 import ArticleDetail from "src/components/ArticleDetail/ArticleDetail";
 
 const mapStateToProps = state => {
@@ -11,7 +10,11 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchArticleDetail: payload => { dispatch(fetchArticleDetail(payload)) }
+    fetchArticleDetail: payload => { dispatch(fetchArticleDetail(payload)) },
+    increaseAccess: payload => { dispatch({
+      type: ARTICLE_ADD_ACCESS,
+      payload,
+    })}
   }
 };
 

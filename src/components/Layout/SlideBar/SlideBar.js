@@ -47,7 +47,7 @@ export default class SlideBar extends Component {
           }
           description={
             <div>
-              <p className={'abstract'}>{'前端打酱油'}</p>
+              <p className={'abstract'}>{'爱撸铁的程序员'}</p>
               <p className={'abstract'}>
                 <span>文章 - {10}</span>
                 <span style={{marginRight: 10, marginLeft: 10}}>|</span>
@@ -64,10 +64,10 @@ export default class SlideBar extends Component {
     return (
       <Card title={'FOLLOW ME'} hoverable={true} className={'card'}>
         <div className={'icon-git-wrp'}>
-          <div className={'call'}>
-            <Tooltip title={'个人简历'}>
-              <Link to={'/resume'}>&#xe60e;</Link>
-            </Tooltip>
+          <div className={'call'} style={{marginLeft: 'auto', marginRight: 'auto'}}>
+            {/*<Tooltip title={'个人简历'}>*/}
+              {/*<Link to={'/resume'}>&#xe60e;</Link>*/}
+            {/*</Tooltip>*/}
             <Tooltip>
               <a href={'https://github.com/chenjiang3'} target={'view_window'}>
                 &#xea0a;
@@ -77,7 +77,7 @@ export default class SlideBar extends Component {
               title={
                 <img
                   className={'wx'}
-                  src={'http://img.qqzi.com/Content/Upload/2018/07/11/e2727fb9-17ab-44f6-a7f8-834ef23245fc.png'}
+                  src={'https://raw.githubusercontent.com/chenjiang3/chenjiang-res/master/img/WechatIMG92.jpeg'}
                   alt={'微信'}
                   width={100}
                   height={100}
@@ -86,14 +86,14 @@ export default class SlideBar extends Component {
             >
               <a>&#xe7e5;</a>
             </Tooltip>
-            <Tooltip title={'知乎'}>
-              <a
-                href={'https://www.zhihu.com/people/fan-xing-yu-8/activities'}
-                target={'view_window'}
-              >
-                &#xe625;
-              </a>
-            </Tooltip>
+            {/*<Tooltip title={'QQ'}>*/}
+              {/*<a*/}
+                {/*href={'https://www.zhihu.com/people/fan-xing-yu-8/activities'}*/}
+                {/*target={'view_window'}*/}
+              {/*>*/}
+                {/*&#xe676;*/}
+              {/*</a>*/}
+            {/*</Tooltip>*/}
           </div>
         </div>
       </Card>

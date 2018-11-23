@@ -21,7 +21,10 @@ export default class Articles extends Component {
 
   _fetchArticleList = () => {
     const {fetchArticleList} = this.props;
-    fetchArticleList();
+    fetchArticleList({
+      pageIndex: 1,
+      pageSize: 100,
+    });
   };
 
   _onChange = (page, pageSize) => {
@@ -30,7 +33,8 @@ export default class Articles extends Component {
 
   render() {
     const {articleList} = this.props;
-    const {articles, total} = articleList || {};
+    const {articles} = articleList || {};
+    const total = articles.length;
     const {pageIndex, pageSize} = this.state;
     return (
       <div>
@@ -42,7 +46,7 @@ export default class Articles extends Component {
         >
           {
             articles && articles.map(item => (
-              <Link to={`/article/${item._id}`}>
+              <Link to={`/article/${item.id}`}>
                 <Card
                   key={`${item._id}-${item.title}`}
                   bordered={false}
@@ -53,12 +57,12 @@ export default class Articles extends Component {
                   <div>
                     <h3>{item.title}</h3>
                     <p className={'tag'}>
-                      <span>发表于：{format(item.create_at)}</span>
-                      <span>标签：{item.tag && item.tag.title}</span>
+                      <span>发表于：{format(item.createTime)}</span>
+                      <span>标签：{item.tag && item.tags}</span>
                       <span>浏览：{item.access}</span>
                     </p>
-                    <div className={'abstract'}>{item.abstract}...</div>
-                    <Link to={`/article/${item._id}`}>
+                    <div className={'abstract'}>{item.abstractContent}...</div>
+                    <Link to={`/article/${item.id}`}>
                       <span className={'link'}>阅读原文 >></span>
                     </Link>
                   </div>

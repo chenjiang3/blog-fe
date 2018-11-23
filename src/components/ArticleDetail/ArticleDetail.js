@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {Card} from 'antd';
 import Highlight from 'react-highlight';
 
+import marked from 'marked';
+
 import './style.less';
 import './highlight.less';
 import {format} from "../../utils/utils";
@@ -9,7 +11,12 @@ import {format} from "../../utils/utils";
 export default class ArticleDetail extends Component {
 
   componentDidMount() {
-    const {fetchArticleDetail, match:{params: id}} = this.props;
+    const {
+      increaseAccess,
+      fetchArticleDetail,
+      match:{params: id}
+    } = this.props;
+    increaseAccess({...id});
     fetchArticleDetail({...id});
   }
 
@@ -22,11 +29,11 @@ export default class ArticleDetail extends Component {
     const {article} = this.props;
     const {
       title = '',
-      create_at,
+      createTime,
       access,
       type,
       content = '',
-      tag = { title: '' }
+      tags
     } = article || {};
     return (
       <div className={'article'}>
@@ -34,14 +41,14 @@ export default class ArticleDetail extends Component {
           <div>
             <h3>{title}</h3>
             <div className={'tag'}>
-              <span>发表于：{format(create_at)}</span>
+              <span>发表于：{format(createTime)}</span>
               <span>分类：{type}</span>
-              <span>标签：{tag.title}</span>
+              <span>标签：{tags}</span>
               <span>浏览：{access}</span>
             </div>
           </div>
           <Highlight innerHTML={true} className={'javascript'}>
-            {this._addCode(content)}
+            {this._addCode(marked(content))}
           </Highlight>
         </Card>
       </div>

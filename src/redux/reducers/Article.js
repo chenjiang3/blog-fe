@@ -18,7 +18,10 @@ const article = (state = initState, action) => {
     case RECEIVE_ARTICLE_LIST:
       return {
         ...state,
-        articleList: action.articleList,
+        articleList: {
+          ...action.articleList,
+          total: action.articleList.length,
+        },
       };
     case RECEIVE_ARTICLE_DETAIL:
       return {

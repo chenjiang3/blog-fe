@@ -3,8 +3,8 @@ const merge = require('webpack-merge');
 
 const commonConfig = require('./webpack.common.config');
 
-const BASE_URL_DEV = 'http://132.232.34.190';
-const BASE_URL_PRO = 'http://132.232.34.190';
+const BASE_URL_DEV = 'http://localhost:8080';
+const BASE_URL_PRO = 'http://localhost:8080';
 const BASE_URL = process.env.NODE_ENV === 'development' ? BASE_URL_DEV : BASE_URL_PRO;
 
 const devConfig = {
@@ -27,7 +27,7 @@ const devConfig = {
     ]
   },
   devServer: {
-    port: 8080,
+    port: 9001,
     contentBase: path.join(__dirname, './dist'),
     historyApiFallback: true,
     host: '0.0.0.0',
@@ -36,6 +36,7 @@ const devConfig = {
         target: BASE_URL,
         secure: false,
         changeOrigin: true,
+        pathRewrite: { '^/api': '' },
       },
     }
   },
