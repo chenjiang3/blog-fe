@@ -11,10 +11,16 @@ const initState = {
     total: 0,
   },
   article: {},
+  loading: false,
 };
 
 const article = (state = initState, action) => {
   switch (action.type) {
+    case FETCH_ARTICLE_LIST:
+      return {
+        ...state,
+        loading: true,
+      };
     case RECEIVE_ARTICLE_LIST:
       return {
         ...state,
@@ -22,11 +28,18 @@ const article = (state = initState, action) => {
           ...action.articleList,
           total: action.articleList.length,
         },
+        loading: false,
+      };
+    case FETCH_ARTICLE_DETAIL:
+      return {
+        ...state,
+        loading: true,
       };
     case RECEIVE_ARTICLE_DETAIL:
       return {
         ...state,
         article: action.article,
+        loading: false,
       };
     default:
       return state;

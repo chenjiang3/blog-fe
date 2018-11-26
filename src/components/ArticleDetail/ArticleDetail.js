@@ -7,6 +7,7 @@ import marked from 'marked';
 import './style.less';
 import './highlight.less';
 import {format} from "../../utils/utils";
+import Loading from "../Loading/Loading";
 
 export default class ArticleDetail extends Component {
 
@@ -14,7 +15,7 @@ export default class ArticleDetail extends Component {
     const {
       increaseAccess,
       fetchArticleDetail,
-      match:{params: id}
+      match: {params: id}
     } = this.props;
     increaseAccess({...id});
     fetchArticleDetail({...id});
@@ -26,7 +27,7 @@ export default class ArticleDetail extends Component {
   };
 
   render() {
-    const {article} = this.props;
+    const {article, loading} = this.props;
     const {
       title = '',
       createTime,
@@ -36,22 +37,24 @@ export default class ArticleDetail extends Component {
       tags
     } = article || {};
     return (
-      <div className={'article'}>
-        <Card hoverable={true} bordered={false} className={'article'}>
-          <div>
-            <h3>{title}</h3>
-            <div className={'tag'}>
-              <span>发表于：{format(createTime)}</span>
-              <span>分类：{type}</span>
-              <span>标签：{tags}</span>
-              <span>浏览：{access}</span>
+      <Loading loading={loading}>
+        <div className={'article'}>
+          <Card hoverable={true} bordered={false} className={'article'}>
+            <div>
+              <h3>{title}</h3>
+              <div className={'tag'}>
+                <span>发表于：{format(createTime)}</span>
+                <span>分类：{type}</span>
+                <span>标签：{tags}</span>
+                <span>浏览：{access}</span>
+              </div>
             </div>
-          </div>
-          <Highlight innerHTML={true} className={'javascript'}>
-            {this._addCode(marked(content))}
-          </Highlight>
-        </Card>
-      </div>
+            <Highlight innerHTML={true} className={'javascript'}>
+              {this._addCode(marked(content))}
+            </Highlight>
+          </Card>
+        </div>
+      </Loading>
     )
   }
 

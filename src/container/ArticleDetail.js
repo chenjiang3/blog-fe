@@ -5,6 +5,7 @@ import ArticleDetail from "src/components/ArticleDetail/ArticleDetail";
 const mapStateToProps = state => {
   return {
     article: state.article.article,
+    loading: state.article.loading,
   }
 };
 

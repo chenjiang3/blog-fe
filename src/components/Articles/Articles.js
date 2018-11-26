@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import {Card, Pagination} from 'antd';
 import {format} from 'src/utils/utils';
 import './style.less';
+import Loading from "../Loading/Loading";
 
 export default class Articles extends Component {
 
@@ -32,12 +33,12 @@ export default class Articles extends Component {
   };
 
   render() {
-    const {articleList} = this.props;
+    const {articleList, loading} = this.props;
     const {articles} = articleList || {};
     const total = articles.length;
     const {pageIndex, pageSize} = this.state;
     return (
-      <div>
+      <Loading loading={loading}>
         <QueueAnim
           animConfig={[
             {opacity: [1, 0], translateY: [0, 50]},
@@ -80,7 +81,7 @@ export default class Articles extends Component {
             key={'pagination'}
           />
         </QueueAnim>
-      </div>
+      </Loading>
     )
   }
 
