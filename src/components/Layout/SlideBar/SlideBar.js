@@ -34,24 +34,29 @@ const lastArticle = [
 export default class SlideBar extends Component {
 
   _renderInfo = () => {
+    const {
+      authorInfo: {
+        data: author = {}
+      },
+    } = this.props;
     return (
       <Card hoverable={true} className={'card'} cover={<img src={headerImg} /> }>
         <div className={'authorImg'}>
-          <img src={authImg} alt={''}/>
+          <img src={author.headerSrc || ''} alt={''}/>
         </div>
         <Meta
           title={
             <div>
-              <span className={'card-title'}>{'chenjiang'}</span>
+              <span className={'card-title'}>{author.userName || ''}</span>
             </div>
           }
           description={
             <div>
-              <p className={'abstract'}>{'爱撸铁的程序员'}</p>
+              <p className={'abstract'}>{author.brief || ''}</p>
               <p className={'abstract'}>
                 <span>文章 - {10}</span>
                 <span style={{marginRight: 10, marginLeft: 10}}>|</span>
-                <span>访问 - {10}</span>
+                <span>访问 - {author.access || 0}</span>
               </p>
             </div>
           }
@@ -122,12 +127,18 @@ export default class SlideBar extends Component {
   };
 
   _renderArticleList = () => {
+    const {
+      articleList: {
+        articles
+      }
+    } = this.props;
+
     return (
-      <Card title={'文章列表'} hoverable={true} className={'card'}>
+      <Card title={'最新文章'} hoverable={true} className={'card'}>
         <ul>
           {
-            lastArticle &&
-              lastArticle.map((item, index) => (
+            articles &&
+              articles.map((item, index) => (
                 <li key={index} className={'tag'}>
                   <Link to={`/articles/${item.id}`}>{item.title}</Link>
                 </li>

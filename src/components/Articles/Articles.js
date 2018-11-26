@@ -47,7 +47,7 @@ export default class Articles extends Component {
         >
           {
             articles && articles.map(item => (
-              <Link to={`/article/${item.id}`}>
+              <Link to={`/article/${item.id}`} key={item.id}>
                 <Card
                   key={`${item._id}-${item.title}`}
                   bordered={false}
@@ -63,9 +63,9 @@ export default class Articles extends Component {
                       <span>浏览：{item.access}</span>
                     </p>
                     <div className={'abstract'}>{item.abstractContent}...</div>
-                    <Link to={`/article/${item.id}`}>
+                    <span>
                       <span className={'link'}>阅读原文 >></span>
-                    </Link>
+                    </span>
                   </div>
                 </Card>
               </Link>

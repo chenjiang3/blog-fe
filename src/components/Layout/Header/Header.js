@@ -103,7 +103,7 @@ class HeaderDom extends Component {
 
   render() {
     return (
-      <Link className='header' to="/">
+      <div className='header'>
         <Header>
           <Row>
             <Col md={0} lg={1} xl={3} xxl={5} />
@@ -195,7 +195,7 @@ class HeaderDom extends Component {
           </Col>
           <Col lg={1} xl={4} xxl={5} />
         </Row>
-      </Link>
+      </div>
     );
   }
 

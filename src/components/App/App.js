@@ -14,7 +14,15 @@ const {Content} = Layout;
 export default class App extends Component {
 
   componentDidMount() {
-    console.log(this.props);
+    const {
+      fetchAuthorInfo,
+      latestArticles,
+    } = this.props;
+    fetchAuthorInfo && fetchAuthorInfo();
+    latestArticles && latestArticles({
+      pageIndex: 1,
+      pageSize: 10,
+    });
   }
 
   _renderMgt = () => {
@@ -45,7 +53,7 @@ export default class App extends Component {
                     xl={{span: 6, offset: 1}}
                     xxl={{span: 6, offset: 1}}
                   >
-                    <SlideBar/>
+                    <SlideBar {...this.props}/>
                   </Col>
                 </Row>
               </Col>

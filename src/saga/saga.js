@@ -3,6 +3,7 @@ import {watchYieldArticleList, watchYieldArticleDetail} from "./article";
 import {watchYieldTimeFileList} from './timefile';
 import {watchYieldSayList} from './say';
 import {watchYieldIncreaseAccess} from "src/saga/article";
+import {watchYieldAuthorInfo} from "./user";
 
 export default function *rootSaga() {
   yield all([
@@ -11,5 +12,6 @@ export default function *rootSaga() {
     watchYieldTimeFileList(),
     watchYieldSayList(),
     watchYieldIncreaseAccess(),
+    watchYieldAuthorInfo(),
   ]);
 }

@@ -1,15 +1,29 @@
 import { connect } from 'react-redux';
 import App from 'src/components/App/App';
+import {USER_AUTHOR_INFO_REQ} from "actions/user";
+import {FETCH_ARTICLE_LIST} from "actions/article";
 
-const mapStateToProps = (info) => {
+const mapStateToProps = state => {
   return {
-    info,
+    authorInfo: state.user.authorInfo,
+    articleList: state.article.articleList,
   }
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    // MARK: TODO
+    fetchAuthorInfo: payload => {
+      dispatch({
+        type: USER_AUTHOR_INFO_REQ,
+        payload,
+      })
+    },
+    latestArticles: payload => {
+      dispatch({
+        type: FETCH_ARTICLE_LIST,
+        payload,
+      })
+    },
   }
 };
 
