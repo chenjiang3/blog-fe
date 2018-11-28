@@ -91,8 +91,10 @@ const commonConfig = {
       router: path.join(__dirname, 'src/router'),
       actions: path.join(__dirname, 'src/redux/actions'),
       reducers: path.join(__dirname, 'src/redux/reducers'),
-      src: path.join(__dirname, 'src')
-    }
+      src: path.join(__dirname, 'src'),
+      res: path.join(__dirname, 'src/res'),
+    },
+    extensions: ['.js', '.jsx']
   },
 };
 

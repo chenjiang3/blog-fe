@@ -9,6 +9,8 @@ const {Meta} = Card;
 const headerImg = 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542361204884&di=cb9d84f47ae4de1f42b3f62f94124a32&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fd50735fae6cd7b89d6cf9d40052442a7d8330e55.jpg';
 const authImg = 'https://avatars1.githubusercontent.com/u/5626978?s=460&v=4';
 
+import webChat from 'res/WechatIMG92.png';
+
 const tags = [
   {
     title: 'react',
@@ -82,7 +84,7 @@ export default class SlideBar extends Component {
               title={
                 <img
                   className={'wx'}
-                  src={'https://raw.githubusercontent.com/chenjiang3/chenjiang-res/master/img/WechatIMG92.jpeg'}
+                  src={webChat}
                   alt={'微信'}
                   width={100}
                   height={100}

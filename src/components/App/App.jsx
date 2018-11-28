@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { BackTop, Col, Layout, Row } from 'antd'
 
-import Nav from 'src/components/Nav/Nav';
-import getRouter from 'router/router';
 import HeaderDom from "src/components/Layout/Header/Header";
 
 import './style.less';
