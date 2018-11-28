@@ -1,0 +1,2 @@
+export const TAG_LIST_REQUEST = 'TAG_LIST_REQUEST';
+export const TAG_LIST_RESPONSE = 'TAG_LIST_RESPONSE';

@@ -1,5 +1,4 @@
 import {createStore, applyMiddleware} from 'redux';
-import thunkMiddleware from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 import logger from 'redux-logger';
 

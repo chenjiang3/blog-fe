@@ -108,19 +108,23 @@ export default class SlideBar extends Component {
   };
 
   _renderTags = () => {
+    const {
+      tagList
+    } = this.props;
     return (
       <Card title={'云标签'} hoverable={true} className={'card'}>
         {
-          tags &&
-            tags.map(item => (
+          tagList &&
+            tagList.map(item => (
               <Tag
-                key={item.title}
+                key={item.id}
                 color={item.color}
                 className={'tag'}
                 onClick={() => {
+                  this.props.history.push('/');
                 }}
               >
-                <Link to={'/'}>{item.title}</Link>
+                {item.name}
               </Tag>
             ))
         }

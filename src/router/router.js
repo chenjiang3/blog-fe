@@ -6,13 +6,6 @@ import Paths from './Paths';
 import Bundle from './Bundle';
 import Loading from 'src/components/Loading/Loading';
 
-import Home from 'bundle-loader?lazy&name=home!src/container/Home/Home';
-import Page1 from 'bundle-loader?lazy&name=page1!src/container/Page1/Page1';
-import Counter from 'bundle-loader?lazy&name=counter!src/container/Counter/Counter';
-import UserInfo from 'bundle-loader?lazy&name=userInfo!src/container/UserInfo/UserInfo';
-import NotFound from 'bundle-loader?lazy&name=notfound!src/container/NotFound/NotFound';
-
-
 import AppPage from 'bundle-loader?lazy&name=apppage!src/container/App';
 import ArticleList from 'bundle-loader?lazy&name=articlelist!src/container/ArticleList';
 import ArticleDetail from 'bundle-loader?lazy&name=articledetail!src/container/ArticleDetail';

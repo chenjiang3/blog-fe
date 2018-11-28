@@ -15,12 +15,14 @@ export default class App extends Component {
     const {
       fetchAuthorInfo,
       latestArticles,
+      fetchTagList,
     } = this.props;
     fetchAuthorInfo && fetchAuthorInfo();
     latestArticles && latestArticles({
       pageIndex: 1,
       pageSize: 10,
     });
+    fetchTagList && fetchTagList();
   }
 
   _renderMgt = () => {
