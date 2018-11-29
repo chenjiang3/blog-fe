@@ -22,7 +22,6 @@ export default async (url, options) => {
 
   try {
     let response = await fetch(url, newOptions);
-    console.log('response ', response);
     return response.json();
   } catch (ex) {
     console.log('fetch exception ');

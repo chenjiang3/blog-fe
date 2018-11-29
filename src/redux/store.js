@@ -6,7 +6,11 @@ import combineReducers from './reducers';
 import rootSaga from "src/saga/saga";
 
 const sagaMiddleware = createSagaMiddleware();
-let store = createStore(combineReducers, applyMiddleware(sagaMiddleware, logger));
+let middleWares = [sagaMiddleware];
+if (process.env.NODE_ENV === 'development') {
+  middleWares = [...middleWares, logger];
+}
+let store = createStore(combineReducers, applyMiddleware(...middleWares));
 sagaMiddleware.run(rootSaga);
 
 export default store;
