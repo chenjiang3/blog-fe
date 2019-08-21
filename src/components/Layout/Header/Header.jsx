@@ -55,7 +55,7 @@ const getSplit = e => {
 const headerTitle = [
   { title: '主页', icon: { __html: '&#xe600;' }, url: '/' },
   // { title: '归档', icon: { __html: '&#xe660;' }, url: '/time-file' },
-  // { title: '说说', icon: { __html: '&#xe6a1;' }, url: '/say' },
+  { title: '关于', icon: { __html: '&#xe6a1;' }, url: '/about' },
   // { title: '收藏', icon: { __html: '&#xe60e;' }, url: '/collect' }
 ];
 

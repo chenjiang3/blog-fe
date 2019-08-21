@@ -11,7 +11,7 @@ export default class Articles extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pageIndex: 1,
+      page: 1,
       pageSize: 10,
     };
   }
@@ -23,8 +23,8 @@ export default class Articles extends Component {
   _fetchArticleList = () => {
     const {fetchArticleList} = this.props;
     fetchArticleList({
-      pageIndex: 1,
-      pageSize: 100,
+      offset: 1,
+      limit: 10,
     });
   };
 
@@ -33,12 +33,18 @@ export default class Articles extends Component {
   };
 
   render() {
-    const {articleList, loading} = this.props;
-    const {articles} = articleList || {};
-    const total = articles.length;
+    const {
+      articleList: {
+        items: articles,
+        total,
+      },
+      loading: {
+        articlesList: articlesListLoading
+      }
+    } = this.props;
     const {pageIndex, pageSize} = this.state;
     return (
-      <Loading loading={loading}>
+      <Loading loading={articlesListLoading}>
         <QueueAnim
           animConfig={[
             {opacity: [1, 0], translateY: [0, 50]},

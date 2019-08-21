@@ -7,50 +7,77 @@ import ArticleList from 'src/container/ArticleList';
 import ArticleDetail from 'src/container/ArticleDetail';
 import TimeFile from "../container/TimeFile";
 import Say from '../container/Say';
+import JsonFormater from 'src/container/JsonFormater'
 
 import Paths from "router/Paths";
 
 const RouterList = [
   {
-    component: ArticleList,
+    component: JsonFormater,
     path: Paths.home
-  },
-  {
-    component: ArticleDetail,
-    path: Paths.articleDetail,
-  },
-  {
-    component: TimeFile,
-    path: Paths.timeFile,
-  },
-  {
-    component: Say,
-    path: Paths.says,
-  },
-
+  }
 ];
 
-class RouterMap extends Component {
+// const RouterList = [
+//   {
+//     component: ArticleList,
+//     path: Paths.home
+//   },
+//   {
+//     component: ArticleDetail,
+//     path: Paths.articleDetail,
+//   },
+//   {
+//     component: TimeFile,
+//     path: Paths.timeFile,
+//   },
+//   {
+//     component: Say,
+//     path: Paths.says,
+//   },
+//
+// ];
 
+// class RouterMap extends Component {
+//
+//   render() {
+//     return (
+//       <Switch>
+//         <AppPage>
+//           {
+//             RouterList.map(item => (
+//               <Route
+//                 key={item.path}
+//                 exact
+//                 path={item.path}
+//                 component={item.component}
+//               />
+//             ))
+//           }
+//         </AppPage>
+//       </Switch>
+//     )
+//   }
+//
+// }
+
+class RouterMap extends Component {
   render() {
     return (
       <Switch>
-        <AppPage>
-          {
-            RouterList.map(item => (
-              <Route
-                key={item.path}
-                exact
-                path={item.path}
-                component={item.component}
-              />
-            ))
-          }
-        </AppPage>
+        {
+          RouterList.map(item => (
+            <Route
+              key={item.path}
+              exact
+              path={item.path}
+              component={item.component}
+            />
+          ))
+        }
       </Switch>
     )
   }
-
 }
 
 export default RouterMap;

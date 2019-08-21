@@ -9,9 +9,7 @@ function *yieldArticleList(action) {
   if (response) {
     yield put({
       type: RECEIVE_ARTICLE_LIST,
-      articleList: {
-        articles: response,
-      },
+      payload: response,
     });
   }
 }

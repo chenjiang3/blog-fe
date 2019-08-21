@@ -121,7 +121,7 @@ export default class SlideBar extends Component {
                 color={item.color}
                 className={'tag'}
                 onClick={() => {
-                  this.props.history.push('/');
+                  this.props.history.push(`/?tag=${item.name}`);
                 }}
               >
                 {item.name}
@@ -144,7 +144,7 @@ export default class SlideBar extends Component {
         <ul>
           {
             articles &&
-              articles.map((item, index) => (
+              articles.slice(0, 10).map((item, index) => (
                 <li key={index} className={'tag'}>
                   <Link to={`/articles/${item.id}`}>{item.title}</Link>
                 </li>
@@ -160,7 +160,7 @@ export default class SlideBar extends Component {
       <div className={'Sidebar'}>
         { this._renderInfo() }
         { this._renderFollowMe() }
-        { this._renderTags() }
+        {/*{ this._renderTags() }*/}
         { this._renderArticleList() }
       </div>
     )

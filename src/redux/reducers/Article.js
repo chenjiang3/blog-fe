@@ -7,11 +7,16 @@ import {
 
 const initState = {
   articleList: {
-    articles: [],
+    items:[],
+    limit: 0,
+    offset: 0,
+    page: 1,
     total: 0,
   },
   article: {},
-  loading: false,
+  loading: {
+    articlesList: false,
+  },
 };
 
 const article = (state = initState, action) => {
@@ -19,16 +24,19 @@ const article = (state = initState, action) => {
     case FETCH_ARTICLE_LIST:
       return {
         ...state,
-        loading: true,
+        loading: {
+          articlesList: true,
+          ...state.loading
+        },
       };
     case RECEIVE_ARTICLE_LIST:
       return {
         ...state,
-        articleList: {
-          ...action.articleList,
-          total: action.articleList.length,
+        articleList: action.payload,
+        loading: {
+          articlesList: false,
+          ...state.loading,
         },
-        loading: false,
       };
     case FETCH_ARTICLE_DETAIL:
       return {
