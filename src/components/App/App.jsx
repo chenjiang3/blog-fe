@@ -35,26 +35,24 @@ export default class App extends Component {
     return (
       <Layout>
         <BackTop />
-        <HeaderDom />
+        <Row>
+          <Row>
+            <Col xs={1} sm={1} md={1} lg={1} xl={3} xxl={5} />
+            <Col xs={22} sm={22} md={22} lg={20} xl={18} xxl={14}>
+              <Row>
+                <HeaderDom />
+              </Row>
+            </Col>
+          </Row>
+        </Row>
+
         <Layout>
           <Content>
             <Row>
               <Col xs={1} sm={1} md={1} lg={1} xl={3} xxl={5} />
               <Col xs={22} sm={22} md={22} lg={20} xl={18} xxl={14}>
                 <Row>
-                  <Col xs={24} sm={24} md={24} lg={17} xl={17} xxl={17}>
-                    {children}
-                  </Col>
-                  <Col
-                    xs={24}
-                    sm={24}
-                    md={24}
-                    lg={{span: 6, offset: 1}}
-                    xl={{span: 6, offset: 1}}
-                    xxl={{span: 6, offset: 1}}
-                  >
-                    <SlideBar {...this.props}/>
-                  </Col>
+                  {children}
                 </Row>
               </Col>
             </Row>

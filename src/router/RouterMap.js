@@ -8,6 +8,7 @@ import ArticleDetail from 'src/container/ArticleDetail';
 import TimeFile from "../container/TimeFile";
 import Say from '../container/Say';
 import JsonFormater from 'src/container/JsonFormater'
+import Test from 'src/container/Test';
 
 import Paths from "router/Paths";
 
@@ -65,16 +66,19 @@ class RouterMap extends Component {
   render() {
     return (
       <Switch>
-        {
-          RouterList.map(item => (
-            <Route
-              key={item.path}
-              exact
-              path={item.path}
-              component={item.component}
-            />
-          ))
-        }
+        <Test/>
+        {/*<AppPage>*/}
+          {/*{*/}
+            {/*RouterList.map(item => (*/}
+              {/*<Route*/}
+                {/*key={item.path}*/}
+                {/*exact*/}
+                {/*path={item.path}*/}
+                {/*component={item.component}*/}
+              {/*/>*/}
+            {/*))*/}
+          {/*}*/}
+        {/*</AppPage>*/}
       </Switch>
     )
   }

@@ -55,13 +55,22 @@ const commonConfig = {
         test: /\.less$/,
         use: extractLess.extract({
           use: [{
-            loader: "css-loader"
+            loader: "css-loader",
+            options: {
+              strictMath: true,
+              noIeCompat: true,
+              javascriptEnabled: true,
+              modules: true,
+              localIdentName: '[name]__[local]--[hash:base64:5]'
+            }
           }, {
             loader: "less-loader",
             options: {
               strictMath: true,
               noIeCompat: true,
-              // javascriptEnabled: true,
+              javascriptEnabled: true,
+              modules: true,
+              localIdentName: '[name]__[local]--[hash:base64:5]'
             }
           }],
           // use style-loader in development

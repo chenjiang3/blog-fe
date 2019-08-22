@@ -1,4 +1,47 @@
 @import '~src/theme/const.less';
+.headerContainer {
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid red;
+}
+
+.simple {
+  width: 500px;
+  margin: 20px auto;
+  border: 1px solid black;
+}
+.fancy {
+  width: 500px;
+  margin: 20px auto;
+  padding: 50px;
+  background: #6CE26C;
+  border-width: 10px;
+}
+.header-l {
+  width: 60%;
+  height: 55px;
+  float: left;
+}
+.header_item {
+  //position: fixed;
+  height: 55px;
+  margin: 0 auto;
+  //top: 0px;
+  width: 100%;
+  z-index: 1000;
+  background: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+}
+.header-menu {
+  float: left;
+  margin: 0 0 0 10px;
+  display: inline;
+  .li {
+    float: left;
+    position: relative;
+    margin: 0 50px;
+  }
+}
 .header {
   .search-input {
     width: 200px;
@@ -29,7 +72,7 @@
   .header-footer {
     height: 40px;
     width: 100%;
-    background-color: #c0befd;
+    background-color: #fff;
   }
   .header-title-item {
     display: inline-flex;

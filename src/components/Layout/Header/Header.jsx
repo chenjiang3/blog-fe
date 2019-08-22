@@ -1,5 +1,5 @@
 import { Col, Dropdown, Icon, Input, Layout, Menu, Row } from 'antd';
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 import {Link} from 'react-router-dom';
 import Texty from 'rc-texty';
 import TweenOne from 'rc-tween-one';
@@ -76,129 +76,15 @@ const menu = (
   </Menu>
 );
 
-class HeaderDom extends Component {
-
-  _renderSearch = () => {
-    // return (
-    //   <Col
-    //     xs={24}
-    //     sm={0}
-    //     md={{ span: 6, offset: 1 }}
-    //     xl={{ span: 6, offset: 1 }}
-    //     xxl={{ span: 6, offset: 1 }}>
-    //     <Search
-    //       placeholder="输入搜索标题"
-    //       onSearch={value => {
-    //         props.fetchArticle({
-    //           pageIndex: 1,
-    //           pageSize: 10,
-    //           title: value
-    //         })
-    //       }}
-    //       className="search-input"
-    //     />
-    //   </Col>
-    // );
-  };
+export default class HeaderDom extends PureComponent {
 
   render() {
     return (
-      <div className='header'>
-        <Header>
-          <Row>
-            <Col md={0} lg={1} xl={3} xxl={5} />
-            <Col md={22} lg={20} xl={18} xxl={14}>
-              <div className="header-logo-wrp">
-                <div className="combined">
-                  <Texty
-                    className="title"
-                    type="mask-top"
-                    delay={400}
-                    enter={getEnter}
-                    interval={getInterval}
-                    component={TweenOne}
-                    componentProps={{
-                      animation: [
-                        { x: 130, type: 'set' },
-                        { x: 100, delay: 500, duration: 450 },
-                        {
-                          duration: 300,
-                          ease: 'easeOutQuart',
-                          x: 0
-                        },
-                        {
-                          delay: -300,
-                          duration: 1000,
-                          ease: 'easeInOutQuint',
-                          letterSpacing: 0,
-                          scale: 0.9
-                        },
-                        {
-                          delay: -300,
-                          duration: 1000,
-                          ease: 'easeInOutQuint',
-                          scale: 1,
-                          width: '100%'
-                        }
-                      ]
-                    }}>
-                    ChenJiang Blog
-                  </Texty>
-                  <TweenOne
-                    className="combined-bar"
-                    animation={{
-                      delay: 2000,
-                      ease: 'easeInOutExpo',
-                      type: 'from',
-                      width: 0,
-                      x: 158
-                    }}
-                  />
-                  <Texty
-                    className="content"
-                    type="bottom"
-                    split={getSplit}
-                    delay={2200}
-                    interval={30}>
-                    记录 自己 学习 历程，文章 写得 不好 请见 谅
-                  </Texty>
-                </div>
-                <div className="menu-button-wrp">
-                  <Dropdown overlay={menu} trigger={['click']}>
-                    <Icon type="bars" className="menu-button" />
-                  </Dropdown>
-                </div>
-              </div>
-            </Col>
-          </Row>
-        </Header>
-        <Row className="header-footer">
-          <Col lg={1} xl={4} xxl={5} />
-          <Col lg={22} xl={18} xxl={14}>
-            <Row>
-              <Col xs={24} sm={24} md={17} lg={17} xl={17} xxl={17}>
-                {headerTitle.map(item => (
-                  <div key={item.title} className="header-title-item">
-                    <Link to={item.url}>
-                    <span
-                      className="icon-font"
-                      style={{ marginRight: 5 }}
-                      dangerouslySetInnerHTML={item.icon}
-                    />
-                      {item.title}
-                    </Link>
-                  </div>
-                ))}
-              </Col>
-              {this._renderSearch()}
-            </Row>
-          </Col>
-          <Col lg={1} xl={4} xxl={5} />
-        </Row>
+      <div className='header-container'>
+        <div className='simple'/>
+        <div className='fancy'/>
       </div>
-    );
+    )
   }
 
 }
-
-export default HeaderDom;

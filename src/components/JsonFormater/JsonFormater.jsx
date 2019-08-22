@@ -21,7 +21,6 @@ export default class JsonFormater extends Component {
         error: null,
       });
     } catch (e) {
-      console.log(e);
       this.setState({
         error: e,
       });
@@ -34,13 +33,10 @@ export default class JsonFormater extends Component {
     if (error) {
       return <div>{error.message}</div>
     }
-    return <ReactJson
-      src={json}
-    />
+    return <ReactJson src={json} />
   };
 
   render() {
-
     return (
       <div className='container'>
         <div className="left">
