@@ -8,7 +8,7 @@ const titles = [
   "Unix时间戳"
 ];
 
-export default class Test extends Component {
+export default class Menu extends Component {
 
   constructor() {
     super();
@@ -37,7 +37,6 @@ export default class Test extends Component {
   };
 
   render() {
-
     return (
       <div className={styles.headerContainer}>
         <div className={styles.titleContainer}>
